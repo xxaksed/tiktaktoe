@@ -6,35 +6,33 @@ function NewGame() {
     const [hod, setHod] = useState(0)
     const [game, setGame] = useState(
         [
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""],
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
         ])
+        console.log(game)
+        
+        let gameChange = game
 
-    // game.map((game) => {
+        function onClickTiktaktoe(row, item){
 
-    //     useEffect(() => {
+            gameChange[] == "1"
 
-    //         if (hod % 2 == 0) {
-    //             setGame('X')
-    //         }
-    //         else (
-    //             setGame('O')
-    //         )
-
-    //         setHod(+ 1);
-
-    //     }, [hod])
-
-    // })
+            console.log(gameChange)
+        }
+        
 
     return (
         <div className="Board">
-            {game.map((row) => {
+            {game.map((row, index) => {
                 return (
-                    <div key={Math.random()*9999+1}>{row.map(() => {
+                    <div className = 'layer' key={Math.random()*9999+1}>{row.map((item, index) => {
                         return (
-                            <Tile key={Math.random()*9999+1} onClickFunc={console.log()}></Tile>)
+                            <Tile key={Math.random()*9999+1}  
+                            onClickFunc={()=>onClickTiktaktoe(row, item)}
+                            value={item}
+                            >
+                            </Tile>)
                     })}
                     </div>
                 )
